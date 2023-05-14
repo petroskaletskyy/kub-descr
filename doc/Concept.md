@@ -42,7 +42,7 @@ kind consists of:
 - Go [packages](packages) implementing [cluster creation](https://github.com/kubernetes-sigs/kind/tree/main/pkg/cluster), [image build](https://github.com/kubernetes-sigs/kind/tree/main/pkg/build), etc.
 - A command line interface ( [kind](https://github.com/kubernetes-sigs/kind/tree/main/main.go) ) built on these packages.
 - Docker [image(s)](https://github.com/kubernetes-sigs/kind/tree/main/images) written to run systemd, Kubernetes, etc.
-- `[kubetest](https://github.com/kubernetes/test-infra/tree/master/kubetest)` integration also built on these packages (WIP)
+- [kubetest](https://github.com/kubernetes/test-infra/tree/master/kubetest) integration also built on these packages (WIP)
   
 kind bootstraps each “node” with [kubeadm](https://kubernetes.io/docs/reference/setup-tools/kubeadm/kubeadm/). For more details see the [design documentation](https://kind.sigs.k8s.io/docs/design/initial).
 
