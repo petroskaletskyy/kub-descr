@@ -61,18 +61,11 @@ k3d makes it very easy to create single- and multi-node [k3s](https://github.com
 ---
 ## Supported Operating Systems
 ---
-|-|---------|--------------|-------------|------------------------------|---------------------------------------------------------------------------------------|
-| | Service | Supported OS | ARC support |    Automation Capability     |                                 Additional functions                                  |
-|-|---------|--------------|-------------|------------------------------|---------------------------------------------------------------------------------------|
-| | Minikube| Linux, macOS,| x86, x86_64,| yes, configurable via CLI or | monitoring using the Kubernetes Dashboard, the ability to work with containers from   |
-| |         | Windows      | ARM         |     configuration file       | Docker or CRI-O                                                                       |
-|-|---------|--------------|-------------|------------------------------|---------------------------------------------------------------------------------------|
-| | Kind    | Linux, macOS,| x86, x86_64,| yes, configurable via CLI or | the possibility of working with containers from Docker, the possibility               |
-| |         | Windows      | ARM         |     configuration file       | of automated generation of the Kubernetes configuration                               |
-|-|---------|--------------|-------------|------------------------------|---------------------------------------------------------------------------------------|
-| | K3d     | Linux, macOS,| x86, x86_64,| yes, configurable via CLI or | the ability to work with containers from Docker, the ability to automatically         |
-| |         | Windows      | ARM         |     configuration file       | generate the Kubernetes configuration, the ability to launch many Kubernetes clusters.|
-|-|---------|--------------|-------------|------------------------------|---------------------------------------------------------------------------------------|
+| Service 	| Supported OS 	| ARC support 	| Automation Capability 	| Additional functions 	|
+|---	|---	|---	|---	|---	|
+| Minikube 	| Linux, macOS, Windows 	| x86, x86_64, ARM 	| yes, configurable via CLI or configuration file 	| monitoring using the Kubernetes Dashboard, the ability to work with containers from Docker or CRI-O 	|
+| Kind 	| Linux, macOS, Windows 	| x86, x86_64, ARM 	| yes, configurable via CLI or configuration filev 	| the possibility of working with containers from Docker, the possibility of automated generation of the Kubernetes configuration 	|
+| K3d 	| Linux, macOS, Windows 	| x86, x86_64, ARM 	| yes, configurable via CLI or configuration file 	| the ability to work with containers from Docker, the ability to automatically generate the Kubernetes configuration, the ability to launch many Kubernetes clusters. 	|
 
 # Advantages and disadvantages
 ---
@@ -131,22 +124,22 @@ For this task I strongly recomend K3d solution. Because it provides much more ad
 
 # Demo
 ---
-Install current latest release
-wget: `wget -q -O - https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash`
-curl: `curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash`
-For creation cluster need to run command:
-    `k3d cluster create <your_cluster_name>`
-After sucessfull claster creation, check cluster info:
-    `kubectl cluster-info`
-Check cluster nodes:
-    `kubectl get nodes`
-Run our test image on Kubernetes cluster
-    `kubectl run <deployment_name> --image=<your_image>`    
-Check created pod
-    `kubectl get pods`
-Output the log from our container "Hello"
-    `kubectl logs <deployment_name>` 
-You can delete cluster
-    `k3d cluster delete <your_cluster_name>`    
+Install current latest release <br />
+&emsp;&emsp;wget: &emsp;`wget -q -O - https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash` <br />
+&emsp;&emsp;curl: &emsp;`curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash` <br />
+For creation cluster need to run command: <br />
+&emsp;&emsp;`k3d cluster create <your_cluster_name>` <br />
+After sucessfull claster creation, check cluster info: <br />
+&emsp;&emsp;`kubectl cluster-info` <br />
+Check cluster nodes: <br />
+&emsp;&emsp;`kubectl get nodes` <br />
+Run our test image on Kubernetes cluster <br />
+&emsp;&emsp;`kubectl run <deployment_name> --image=<your_image>` 
+Check created pod <br />
+&emsp;&emsp;`kubectl get pods` <br />
+Output the log from our container "Hello" <br />
+&emsp;&emsp;`kubectl logs <deployment_name>` <br />
+You can delete cluster <br />
+&emsp;&emsp;`k3d cluster delete <your_cluster_name>`  <br />  
     
 https://asciinema.org/a/584839          
