@@ -135,7 +135,7 @@ Install current latest release
 wget: `wget -q -O - https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash`
 curl: `curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash`
 For creation cluster need to run command:
-    `k3d create cluster <your_cluster_name>`
+    `k3d cluster create <your_cluster_name>`
 After sucessfull claster creation, check cluster info:
     `kubectl cluster-info`
 Check cluster nodes:
@@ -146,5 +146,7 @@ Check created pod
     `kubectl get pods`
 Output the log from our container "Hello"
     `kubectl logs <deployment_name>` 
+You can delete cluster
+    `k3d cluster delete <your_cluster_name>`    
     
-          
+https://asciinema.org/a/584839          
