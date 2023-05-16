@@ -30,6 +30,9 @@ This will create a new namespace, `argocd`, where Argo CD services and applicati
 3. You will be redirected to main page - Dashboard, where you can view the status of your applications and repositories, as well as manage your clusters, settings, and user accounts., view all details, view its current state, configuration, and deployment history.
 4. All changes you can made from this Web interface.
 5. You can refer to the ArgoCD documentation, if you have any questions.
-![enter image description here](https://github.com/petroskaletskyy/kub-descr/tree/main/doc/login.jpg)
-![enter image description here](https://github.com/petroskaletskyy/kub-descr/tree/main/doc/dashboard.jpg)
+
+https://asciinema.org/a/585333
+
+![Login page](login.jpg)
+![Dashboard](dashboard.jpg)
 
