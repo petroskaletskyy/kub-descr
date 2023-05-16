@@ -22,7 +22,7 @@ This will create a new namespace, `argocd`, where Argo CD services and applicati
 	`k port-forward svc/argocd-server -n argocd 8080:443`	 			
 8.  Open a web browser and navigate to  `https://localhost:8080`. You should be able to access the ArgoCD UI.
 9. For access to application, you need to get password for *admin* user:
-	`k -n argocd get secret argocd-initial-admin-secret -o jsonpath="{data.password}" |base64 -d; echo` 	
+	`k -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" |base64 -d; echo` 	
 
 ## Access to Argo CD Web interface 
 1. Open your browser and go to Argo CD URL.
