@@ -5,24 +5,25 @@
 
 ## Installation
 1. Create new cluster:
-	`k3d cluster create argo`
+      `k3d cluster create argo`
 2. Wait for creation of the cluster and chech cluster info:
-	`kubectl cluster-info`
-3. For our convenience make an alias for *kubectl*:
-	`alias k=kubectl`
-4. Check all created resources in our new cluster *argo*
-	`k get all -A`
-5. Install Argo CD:
-	`kubectl create namespace argocd 
-	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`
-This will create a new namespace, `argocd`, where Argo CD services and application resources will live.
-6. Check all created resources:
-	`k get all -A -n argocd`
-7. To access the ArgoCD web interface, run the following command to expose the service:
-	`k port-forward svc/argocd-server -n argocd 8080:443`	 			
-8.  Open a web browser and navigate to  `https://localhost:8080`. You should be able to access the ArgoCD UI.
-9. For access to application, you need to get password for *admin* user:
-	`k -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" |base64 -d; echo` 	
+      `kubectl cluster-info`
+3. Check all created resources in our new cluster *argo*
+     `kubectl get all -A`
+4. Install Argo CD:
+	```
+	kubectl create namespace argocd 
+	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+ 	```
+   This will create a new namespace, `argocd`, where Argo CD services and application resources will live.
+
+5. Check all created resources:
+     `kubectl get all -A -n argocd`</br>
+6. To access the ArgoCD web interface, run the following command to expose the service:
+     `kubectl port-forward svc/argocd-server -n argocd 8080:443`
+7. Open a web browser and navigate to  `https://localhost:8080`. You should be able to access the ArgoCD UI.
+8. For access to application, you need to get password for *admin* user:
+     `kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d; echo` 	
 
 ## Access to Argo CD Web interface 
 1. Open your browser and go to Argo CD URL.
