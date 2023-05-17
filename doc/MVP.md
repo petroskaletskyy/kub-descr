@@ -1,17 +1,22 @@
 # Deploying Applications with ArgoCD
 
- Argo CD is an open-source, declarative continuous delivery (CD) tool for Kubernetes. It enables GitOps practices by automating the deployment and lifecycle management of applications in a Kubernetes cluster.
+Argo CD is an open-source, declarative continuous delivery (CD) tool for Kubernetes. It enables GitOps practices by automating the deployment and lifecycle management of applications in a Kubernetes cluster.
 With Argo CD, you can define the desired state of your applications in Git repositories using declarative YAML manifests. Argo CD continuously monitors these repositories, detects changes, and reconciles the actual state of the cluster with the desired state defined in Git.
 
 ## Setting Up ArgoCD
 
 1.  Install Argo CD
-	`kubectl create namespace argocd kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`
-2. Kubectl port-forwarding can also be used to connect to the API server without exposing the service.
+	```
+	kubectl create namespace argocd 
+	kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+	```
+2. Kubectl port-forwarding can also be used to connect to the API server without exposing the service.</br>
 	`kubectl port-forward svc/argocd-server -n argocd 8080:443`
 3. Login to Argo CD web UI:
-	`username: admin`
-	`password: kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" |base64 -d; echo`
+	```
+	username: admin
+	password: kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" |base64 -d; echo
+	```
 Once we log in successfully we can see the below home page.
 ![Dashboard](dashboard.jpg)	
 
@@ -52,9 +57,9 @@ Once we log in successfully we can see the below home page.
 ![syncro](syncro.jpg)
 - Now it will sync the files from the git repo and install the manifest files into the cluster.
 ![app](app.jpg)
-![app_2](app_2.jpg)
 - If we open the application, It will display the entire Hierarchy of the application as below.
 ![dashboard_app](dashboard_app_2.jpg)
+![app_2](app_2.jpg)
 - We can fetch the application details via kubectl as well
 ![kubectl](kubectl.jpg)
 - If we have done any changes to the manifest files in the repo. Argocd will not fetch the updated files automatically. So we need to enable the auto-sync option. Once it is enabled, Argocd will check the repo every 3 mins.
