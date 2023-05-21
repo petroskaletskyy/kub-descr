@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-cronjob-pod
+spec:
+  containers:
+  - name: my-cronjob-container
+    image: my-cronjob-image
+    command: ["/bin/sh", "-c", "echo Hello World"]
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: my-cronjob
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: my-cronjob-container
+            image: my-cronjob-image
+            command: ["/bin/sh", "-c", "echo Hello World"]
+          restartPolicy: OnFailure
