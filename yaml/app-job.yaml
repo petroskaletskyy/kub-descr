@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: app-metrics-job
+spec:
+  template:
+    metadata:
+      name: app-metrics-pod
+    spec:
+      containers:
+        - name: prometheus-app-exporter
+          image: prom/app-exporter:latest
+          ports:
+            - containerPort: 8080
+      restartPolicy: Never
+  backoffLimit: 4
